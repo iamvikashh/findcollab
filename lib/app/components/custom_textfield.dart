@@ -8,6 +8,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final int maxLines;
   final IconData? prefixIcon;
+  final bool enabled;
 
   const CustomTextFormField({
     Key? key,
@@ -16,6 +17,7 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.maxLines = 1,
     this.prefixIcon,
+    this.enabled = true,
   }) : super(key: key);
 
   @override
@@ -23,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       style: Get.theme.textTheme.bodyMedium,
       controller: controller,
+      enabled: enabled,
       decoration: InputDecoration(
         labelText: labelText,
         border: const OutlineInputBorder(),

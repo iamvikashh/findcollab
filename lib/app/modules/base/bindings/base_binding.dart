@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/app/modules/chat/controller/chat_controller.dart';
 import 'package:get/get.dart';
 import '../../cart/controllers/cart_controller.dart';
 import '../../favorites/controllers/favorites_controller.dart';
@@ -11,7 +12,7 @@ class BaseBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<BaseController>(() => BaseController());
     Get.lazyPut<HomeController>(() => HomeController());
-    Get.lazyPut<FavoritesController>(() => FavoritesController());
+    Get.lazyPut<ChatController>(() => ChatController());
     Get.lazyPut<CartController>(() => CartController());
     Get.lazyPut<NotificationsController>(() => NotificationsController());
     Get.lazyPut<SettingsController>(() => SettingsController());

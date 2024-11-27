@@ -1,9 +1,11 @@
+import 'package:ecommerce_app/app/modules/chat/views/chat_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
+import '../../search/campaign_search_screen.dart';
 import '../controllers/base_controller.dart';
 import '../../cart/views/cart_view.dart';
 import '../../favorites/views/favorites_view.dart';
@@ -24,10 +26,10 @@ class BaseView extends GetView<BaseController> {
           bottom: false,
           child: IndexedStack(
             index: controller.currentIndex,
-            children: const [
+            children:  [
               HomeView(),
-              FavoritesView(),
-              CartView(),
+            //  ChatPage(),
+              CampaignSearchScreen(),
               NotificationsView(),
               SettingsView()
             ],
@@ -67,10 +69,7 @@ class BaseView extends GetView<BaseController> {
                   label: 'Home',
                   icon: Constants.homeIcon,
                 ),
-                _mBottomNavItem(
-                  label: 'Favorites',
-                  icon: Constants.favoritesIcon,
-                ),
+                
                 _mBottomNavItem(
                   label: 'Cart',
                   icon: Constants.cartIcon,

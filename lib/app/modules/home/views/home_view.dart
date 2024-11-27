@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/app/modules/chat/views/chat_users_page.dart';
+import 'package:ecommerce_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -15,6 +17,13 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.to(ChatUsersPage());
+              },
+              icon: Icon(Icons.chat_bubble_outline))
+        ],
         title: const Row(
           children: [
             //  Image.asset('assets/findcollab_logo.png', height: 30),
@@ -32,8 +41,8 @@ class HomeView extends GetView<HomeController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              10.verticalSpace,
               // Social Stats Row
-              // Replace the existing Row widget with this code
               SizedBox(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -63,7 +72,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              20.verticalSpace,
 
               // Profile Info Card
               Card(
@@ -134,8 +143,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
-
+              20.verticalSpace, 
               // Engagement Card
               Card(
                 child: Padding(
@@ -171,56 +179,8 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
-
-              // Campaign History
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Campaign History',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            '182',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      _buildCampaignRow(
-                        'Boat Nirvana',
-                        'Smart watch brand - Boat',
-                        4.5,
-                      ),
-                      _buildCampaignRow(
-                        'Sunburn',
-                        'Smart watch brand - Boat',
-                        4.5,
-                      ),
-                      _buildCampaignRow(
-                        'Nike',
-                        'Smart watch brand - Boat',
-                        4.5,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-
+            
+             20.verticalSpace,
               // Commercials
               Card(
                 child: Column(
@@ -228,7 +188,7 @@ class HomeView extends GetView<HomeController> {
                     Card(
                       color: Get.theme.primaryColor,
                       child: Container(
-                        margin: EdgeInsets.all(4),
+                        margin: EdgeInsets.all(8),
                         width: double.infinity,
                         child: const Text(
                           'My Commercials',
@@ -276,6 +236,55 @@ class HomeView extends GetView<HomeController> {
                   ],
                 ),
               ),
+
+               20.verticalSpace,
+              // Campaign History
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Campaign History',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            '182',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      _buildCampaignRow(
+                        'Boat Nirvana',
+                        'Smart watch brand - Boat',
+                        4.5,
+                      ),
+                      _buildCampaignRow(
+                        'Sunburn',
+                        'Smart watch brand - Boat',
+                        4.5,
+                      ),
+                      _buildCampaignRow(
+                        'Nike',
+                        'Smart watch brand - Boat',
+                        4.5,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              100.verticalSpace
             ],
           ),
         ),
@@ -293,16 +302,15 @@ class HomeView extends GetView<HomeController> {
         color: color,
         borderRadius: BorderRadius.circular(8),
         gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.pinkAccent.withOpacity(0.5),
-                Colors.red.withOpacity(0.9),
-              ],
-            ),
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Colors.pinkAccent.withOpacity(0.5),
+            Colors.red.withOpacity(0.9),
+          ],
+        ),
         boxShadow: [
           BoxShadow(
-            
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 2,
@@ -329,7 +337,10 @@ class HomeView extends GetView<HomeController> {
               ],
             ),
           ),
-          Icon(icon, color: Colors.white,)
+          Icon(
+            icon,
+            color: Colors.white,
+          )
         ],
       ),
     );

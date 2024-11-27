@@ -1,4 +1,3 @@
-import 'package:dynamic_multi_step_form/dynamic_multi_step_form.dart';
 import 'package:get/get.dart';
 
 class SignupController extends GetxController {
@@ -12,9 +11,9 @@ class SignupController extends GetxController {
 
   Future<void> loadJsonData() async {
     try {
-      String jsonStringResponse = await localJsonRw.localRead();
-      jsonString.value = await ConfigurationSetting.instance
-          .storeFormDataLocal(jsonStringResponse);
+      // String jsonStringResponse = await localJsonRw.localRead();
+      // jsonString.value = await ConfigurationSetting.instance
+      //     .storeFormDataLocal(jsonStringResponse);
     } catch (e) {
       // Handle errors here
       print("Error loading JSON data: $e");

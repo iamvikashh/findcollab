@@ -16,6 +16,12 @@
     <string>Find Collab</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
+    <key>NSCameraUsageDescription</key>
+	  <string>Access camera</string>   
+    <key>NSPhotoLibraryAddUsageDescription</key>
+	  <string>Access photos</string>
+	  <key>NSPhotoLibraryUsageDescription</key>
+	  <string>Access photos</string>
     <key>CFBundleShortVersionString</key>
     <string>$(FLUTTER_BUILD_NAME)</string>
     <key>CFBundleSignature</key>

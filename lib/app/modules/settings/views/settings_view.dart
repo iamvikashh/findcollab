@@ -32,10 +32,13 @@ class SettingsView extends GetView<SettingsController> {
                   fontWeight: FontWeight.normal,
                 )),
             20.verticalSpace,
-            const SettingsItem(
-              title: 'Alice Smith',
-              icon: Constants.userIcon,
-              isAccount: true,
+            GestureDetector(
+              onTap: () => Get.toNamed(Routes.PROFILE),
+              child: const SettingsItem(
+                title: 'Alice Smith',
+                icon: Constants.userIcon,
+                isAccount: true,
+              ),
             ),
             30.verticalSpace,
             Text('Settings',
@@ -43,12 +46,12 @@ class SettingsView extends GetView<SettingsController> {
                   fontSize: 20.sp,
                   fontWeight: FontWeight.normal,
                 )),
-            20.verticalSpace,
-            const SettingsItem(
-              title: 'Dark Mode',
-              icon: Constants.themeIcon,
-              isDark: true,
-            ),
+            // 20.verticalSpace,
+            // const SettingsItem(
+            //   title: 'Dark Mode',
+            //   icon: Constants.themeIcon,
+            //   isDark: true,
+            // ),
             25.verticalSpace,
             const SettingsItem(
               title: 'Language',

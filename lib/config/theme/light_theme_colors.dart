@@ -16,7 +16,7 @@ class LightThemeColors
   static const Color cardColor = Color(0xfffafafa);
 
   //ICONS
-  static const Color appBarIconsColor = Colors.white;
+  static const Color appBarIconsColor = accentColor;
   static const Color iconColor = Color(0xFF899A96);
 
   //BUTTON

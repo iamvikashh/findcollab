@@ -1,6 +1,9 @@
 import 'package:ecommerce_app/app/modules/auth/bindings/AuthBinding.dart';
 import 'package:ecommerce_app/app/modules/auth/views/login_view.dart';
 import 'package:ecommerce_app/app/modules/auth/views/signup_view.dart';
+import 'package:ecommerce_app/app/modules/chat/bindings/chat_binding.dart';
+import 'package:ecommerce_app/app/modules/chat/views/chat_page.dart';
+import 'package:ecommerce_app/app/modules/profile/views/profile_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/base/bindings/base_binding.dart';
@@ -15,6 +18,7 @@ import '../modules/notifications/bindings/notifications_binding.dart';
 import '../modules/notifications/views/notifications_view.dart';
 import '../modules/product_details/bindings/product_details_binding.dart';
 import '../modules/product_details/views/product_details_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -45,18 +49,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () =>  LoginScreen(),
-      binding: AuthBinding(),
-    ),
-     GetPage(
-      name: _Paths.SIGNUP,
-      page: () =>  MultiStepSignup(),
+      page: () => LoginScreen(),
       binding: AuthBinding(),
     ),
     GetPage(
-      name: _Paths.FAVORITES,
-      page: () => const FavoritesView(),
-      binding: FavoritesBinding(),
+      name: _Paths.SIGNUP,
+      page: () => MultiStepSignup(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT,
+      page: () => ChatPage(),
+      binding: ChatBinding(),
     ),
     GetPage(
       name: _Paths.CART,
@@ -67,6 +71,11 @@ class AppPages {
       name: _Paths.NOTIFICATIONS,
       page: () => const NotificationsView(),
       binding: NotificationsBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfilePage(),
+      binding: ProfileBinding(),
     ),
     GetPage(
       name: _Paths.SETTINGS,

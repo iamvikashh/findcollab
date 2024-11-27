@@ -1,4 +1,3 @@
-import 'package:dynamic_multi_step_form/dynamic_multi_step_form.dart';
 import 'package:ecommerce_app/app/components/custom_textfield.dart';
 import 'package:ecommerce_app/app/components/screen_title.dart';
 import 'package:ecommerce_app/app/modules/auth/controllers/SignupController.dart';
