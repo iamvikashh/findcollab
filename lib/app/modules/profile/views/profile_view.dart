@@ -1,7 +1,9 @@
+import 'package:ecommerce_app/app/modules/chat/views/chat_users_page.dart';
 import 'package:ecommerce_app/app/modules/profile/controllers/profile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/app/components/custom_textfield.dart';
 import 'package:get/get.dart';
+import 'package:ecommerce_app/app/components/custom_app_bar.dart';
 
 class ProfilePage extends GetView<ProfileController> {
   const ProfilePage({Key? key}) : super(key: key);
@@ -21,17 +23,14 @@ class ProfilePage extends GetView<ProfileController> {
 
     return Scaffold(
       backgroundColor: Get.theme.colorScheme.surface,
-      appBar: AppBar(
-        title: const Text(
-          'My Profile',
-          style: TextStyle(color: Color(0xFFFF4081)),
-        ),
-        forceMaterialTransparency: true,
+      appBar: CustomAppBar(
+        title: 'My Profile',
+        showBackButton: false,
         actions: [
           Obx(() => IconButton(
-                icon: Icon(controller.isEditing.value ? Icons.close : Icons.edit),
-                onPressed: controller.toggleEdit,
-              ))
+            icon: Icon(controller.isEditing.value ? Icons.close : Icons.edit),
+            onPressed: controller.toggleEdit,
+          ))
         ],
       ),
       body: SingleChildScrollView(

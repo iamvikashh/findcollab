@@ -14,6 +14,7 @@ abstract class Routes {
   static const SETTINGS = _Paths.SETTINGS;
   static const PRODUCT_DETAILS = _Paths.PRODUCT_DETAILS;
   static const PROFILE = _Paths.PROFILE;
+  static const CAMPAIGN_DETAIL = _Paths.CAMPAIGN_DETAIL;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const SETTINGS = '/settings';
   static const PRODUCT_DETAILS = '/product-details';
   static const PROFILE = '/profile';
+  static const CAMPAIGN_DETAIL = '/campaign-detail';
 }

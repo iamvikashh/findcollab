@@ -1,8 +1,9 @@
 // Campaign card model
-import 'package:ecommerce_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import '../campaign_detail/views/campaign_detail_view.dart';
 
 class Campaign {
   final String title;
@@ -116,7 +117,11 @@ class CampaignSearchScreen extends StatelessWidget {
                 itemCount: controller.filteredCampaigns.length,
                 itemBuilder: (context, index) {
                   final campaign = controller.filteredCampaigns[index];
-                  return CampaignCard(campaign: campaign);
+                  return GestureDetector(
+                    onTap: () {
+                      Get.to(() => CampaignDetailView());
+                    },
+                    child: CampaignCard(campaign: campaign));
                 },
               ),
             ),
