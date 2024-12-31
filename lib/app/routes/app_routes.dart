@@ -15,6 +15,7 @@ abstract class Routes {
   static const PRODUCT_DETAILS = _Paths.PRODUCT_DETAILS;
   static const PROFILE = _Paths.PROFILE;
   static const CAMPAIGN_DETAIL = _Paths.CAMPAIGN_DETAIL;
+  static const SEARCH = '/search';
 }
 
 abstract class _Paths {

@@ -1,9 +1,10 @@
+import 'package:ecommerce_app/app/services/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-
 import 'app/data/local/my_shared_pref.dart';
+import 'app/init_dependencies.dart';
 import 'app/routes/app_pages.dart';
 import 'config/theme/my_theme.dart';
 
@@ -13,6 +14,10 @@ Future<void> main() async {
 
   // init shared preference
   await MySharedPref.init();
+
+  // Initialize services
+  await Get.put(StorageService()).init();
+  InitDependencies().dependencies();
 
   runApp(
     ScreenUtilInit(
@@ -26,7 +31,7 @@ Future<void> main() async {
           title: "E-commerce App",
           useInheritedMediaQuery: true,
           debugShowCheckedModeBanner: false,
-          builder: (context,widget) {
+          builder: (context, widget) {
             bool themeIsLight = MySharedPref.getThemeIsLight();
             return Theme(
               data: MyTheme.getThemeData(isLight: themeIsLight),
@@ -36,7 +41,8 @@ Future<void> main() async {
               ),
             );
           },
-          initialRoute: AppPages.INITIAL, // first screen to show when app is running
+          initialRoute:
+              AppPages.INITIAL, // first screen to show when app is running
           getPages: AppPages.routes, // app screens
         );
       },

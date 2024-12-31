@@ -65,19 +65,23 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 40.verticalSpace,
-                CustomButton(
-                  text: 'Login',
-                  onPressed: () => {Get.toNamed(Routes.BASE)},
-                  disabled: false,
-                  fontSize: 16.sp,
-                  radius: 12.r,
-                  verticalPadding: 12.h,
-                  hasShadow: true,
-                  shadowColor: theme.primaryColor,
-                  shadowOpacity: 0.3,
-                  shadowBlurRadius: 4,
-                  shadowSpreadRadius: 0,
-                ).animate().fade().slideY(
+                Obx(() => CustomButton(
+                          text: loginController.isLoading.value
+                              ? 'Logging in...'
+                              : 'Login',
+                          onPressed: loginController.isLoading.value
+                              ? null
+                              : () => loginController.login(),
+                          disabled: loginController.isLoading.value,
+                          fontSize: 16.sp,
+                          radius: 12.r,
+                          verticalPadding: 12.h,
+                          hasShadow: true,
+                          shadowColor: theme.primaryColor,
+                          shadowOpacity: 0.3,
+                          shadowBlurRadius: 4,
+                          shadowSpreadRadius: 0,
+                        )).animate().fade().slideY(
                       duration: const Duration(milliseconds: 300),
                       begin: 1,
                       curve: Curves.easeInSine,

@@ -23,13 +23,15 @@ import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 import '../modules/campaign_detail/bindings/campaign_detail_binding.dart';
 import '../modules/campaign_detail/views/campaign_detail_view.dart';
+import '../modules/search/bindings/search_binding.dart';
+import '../modules/search/views/campaign_search_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -95,6 +97,11 @@ class AppPages {
       binding: CampaignDetailBinding(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 250),
+    ),
+    GetPage(
+      name: Routes.SEARCH,
+      page: () => CampaignSearchView(),
+      binding: SearchBinding(),
     ),
   ];
 }

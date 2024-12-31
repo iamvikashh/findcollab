@@ -2,58 +2,49 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/app/services/profile_service.dart';
+import 'package:ecommerce_app/app/data/models/user_profile_model.dart';
 
 class ProfileController extends GetxController {
-  // Observable variables
-  Rx<String?> profileImageUrl = Rx<String?>(null);
-  RxBool isEditing = false.obs;
+  final ProfileService _profileService = Get.find<ProfileService>();
 
-  // Method to toggle edit mode
+  final isEditing = false.obs;
+  final isLoading = false.obs;
+  final profileData = Rxn<UserProfileModel>();
+  final profileImageUrl = Rxn<String>();
+
+  @override
+  void onInit() {
+    super.onInit();
+    fetchProfileData();
+  }
+
+  Future<void> fetchProfileData() async {
+    try {
+      isLoading.value = true;
+      final response = await _profileService
+          .getProfile('19180'); // Replace with actual user ID
+      profileData.value = UserProfileModel.fromJson(response);
+      if (profileData.value?.imagePath != null) {
+        profileImageUrl.value = profileData.value!.imagePath;
+      }
+    } catch (e) {
+      Get.snackbar('Error', 'Failed to load profile data');
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
   void toggleEdit() {
     isEditing.value = !isEditing.value;
   }
 
-  // Method to upload profile picture
-  Future<void> uploadProfilePicture() async {
-    try {
-      return;
-      final ImagePicker picker = ImagePicker();
-      final XFile? image = await picker.pickImage(
-        source: ImageSource.gallery,
-        maxWidth: 1800,
-        maxHeight: 1800,
-        imageQuality: 80,
-      );
-
-      if (image != null) {
-        // Here you would typically upload to your backend/storage
-        // For now, we'll just update the local URL
-        profileImageUrl.value = image.path;
-
-        Get.snackbar(
-          'Success', 
-          'Profile picture updated',
-          snackPosition: SnackPosition.BOTTOM,
-        );
-      }
-    } catch (e) {
-      Get.snackbar(
-        'Error', 
-        'Failed to upload profile picture',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-      print('Error uploading profile picture: $e');
-    }
+  Future<void> saveProfile() async {
+    // Implement save profile logic
+    toggleEdit();
   }
 
-  // Method to save profile
-  void saveProfile() {
-    // Implement profile save logic
-    isEditing.value = false;
-    Get.snackbar(
-      'Success', 
-      'Profile Updated Successfully',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+  Future<void> uploadProfilePicture() async {
+    // Implement profile picture upload logic
   }
 }

@@ -1,14 +1,11 @@
-import 'package:ecommerce_app/app/modules/chat/views/chat_page.dart';
+import 'package:ecommerce_app/app/modules/search/views/campaign_search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
-import '../../search/campaign_search_screen.dart';
 import '../controllers/base_controller.dart';
-import '../../cart/views/cart_view.dart';
-import '../../favorites/views/favorites_view.dart';
 import '../../home/views/home_view.dart';
 import '../../notifications/views/notifications_view.dart';
 import '../../settings/views/settings_view.dart';
@@ -29,7 +26,7 @@ class BaseView extends GetView<BaseController> {
             children:  [
               HomeView(),
             //  ChatPage(),
-              CampaignSearchScreen(),
+              CampaignSearchView(),
               NotificationsView(),
               SettingsView()
             ],

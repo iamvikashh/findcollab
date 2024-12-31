@@ -15,7 +15,7 @@ dependencies:
   rename_app: # rename app
   flutter_svg: # for svg icons
   flutter_animate: # for animation  
-
+  dio: ^5.4.0
 
   flutter: 
     sdk: flutter
